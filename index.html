@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -13,7 +13,10 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <!-- NAVBAR-->
     <div class="">
+
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:black">
             <div class="container-fluid">
                 <<button type="button" class="btn btn-warning">E-Commerce</button>
@@ -22,6 +25,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Products</a>
                         </li>
@@ -31,6 +35,7 @@
                                 <button class="btn btn-outline-warning" type="submit">Search</button>
                             </form>
                         </li>
+
                         <li class="nav-item dropdown" hidden>
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Settings
@@ -42,6 +47,8 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
+
+
                         <li class="nav-item">
                             <a hidden class="nav-link disabled" aria-disabled="true">Disabled</a>
                         </li>
@@ -59,6 +66,69 @@
             </div>
         </nav>
     </div>
+    <!-- "Add Product" Button -->
+    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#productModal">
+        Add Product
+    </button>
+
+    <!-- Modal for Adding a Product -->
+    <div class="modal" id="productModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Product</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="productName">Product Name</label>
+                            <input type="text" class="form-control" id="productName" placeholder="Enter product name">
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Description</label>
+                            <textarea class="form-control" id="productDescription" rows="3" placeholder="Enter product description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="productPrice">Price</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="productPrice" placeholder="Enter product price">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="addProductBtn">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to Handle "Add Product" Button Click -->
+    <script>
+        document.getElementById('addProductBtn').addEventListener('click', function () {
+            // Retrieve the values entered in the modal fields
+            var productName = document.getElementById('productName').value;
+            var productDescription = document.getElementById('productDescription').value;
+            var productPrice = document.getElementById('productPrice').value;
+
+            // You can use these values to add the product to your system or perform other actions
+            // For now, we'll just display an alert with the entered values
+            alert("Product Name: " + productName + "\nDescription: " + productDescription + "\nPrice: $" + productPrice);
+
+            // Clear the modal fields
+            document.getElementById('productName').value = '';
+            document.getElementById('productDescription').value = '';
+            document.getElementById('productPrice').value = '';
+
+            // Close the modal
+            $('#productModal').modal('hide');
+        });
+    </script>
+    <!-- LOGIN-->
     <div class="container mt-3" id="containerLogin">
         <label><h3>Login</h3></label>
         <div class="form-floating mb-3">
@@ -154,5 +224,72 @@
             </div>
         </div>
     </div>
+
+    <!--Product Container-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://steamcdn-a.akamaihd.net/apps/570/icons/econ/courier/baby_rosh/babyroshan_elemental1_large.59bf3aa7d4407dbad5b9693ba5040642fdf973ab.png" class="card-img-top" alt="Product 1" height="220">
+                    <div class="card-body">
+                        <h5 class="card-title">Lava Baby Roshan</h5>
+                        <p class="fw-normal">
+                            He's just a little guy! He doesn't know any better.
+                            ( Not Deletable )
+                            Touch of Flame
+                            Ethereal Gem
+                            Pyroclastic Flow
+                            Prismatic Gem
+                        </p>
+                        <p class="text-success">$1,158.66 USD</p>
+                        <!-- Add to Cart button for Product 1 -->
+                        <button class="btn btn-warning add-to-cart" data-product="Lava Baby Roshan" data-price="1158.66">Add to Cart 🛒</button>
+                        <button class="btn btn-outline-danger like">🚩</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://static.wikia.nocookie.net/dota2_gamepedia/images/e/e0/Cosmetic_icon_Dark_Artistry.png/revision/latest?cb=20171125191553" class="card-img-top" alt="Product 2" height="220">
+                    <div class="card-body">
+                        <h5 class="card-title">Dark Artistry Bundle</h5>
+                        <p class="fw-normal">
+                            The International 2016
+                            The formal battle dress of a crumbled and forgotten academy for the mystic arts, claimed as rite and tribute on the day its star pupil decided to break free.
+                        </p>
+                        <p class="text-success">$230.98 USD</p>
+                        <!-- Add to Cart button for Product 2 -->
+                        <button class="btn btn-warning add-to-cart" data-product="Dark Artistry Bundle" data-price="230.98">Add to Cart 🛒</button>
+                        <button class="btn btn-outline-danger like">🚩</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://static.wikia.nocookie.net/dota2_gamepedia/images/7/78/Cosmetic_icon_Ice_Baby_Roshan.png/revision/latest/scale-to-width-down/256?cb=20141219110217" class="card-img-top" alt="Product 2" height="220">
+                    <div class="card-body">
+                        <h5 class="card-title">Ice Baby Roshan</h5>
+                        <p class="fw-normal">
+                            He's just a little guy! He doesn't know any better.
+                            ( Not Deletable )
+                            Touch of Frost
+                            Ethereal Gem
+                            Glacial Flow
+                            Prismatic Gem
+                        </p>
+                        <p class="text-success">$780.00 USD</p>
+                        <!-- Add to Cart button for Product 3 -->
+                        <button class="btn btn-warning add-to-cart" data-product="Ice Baby Roshan" data-price="780.00">Add to Cart 🛒</button>
+                        <button class="btn btn-outline-danger like">🚩</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- End of Products Container -->
 </body>
 </html>
